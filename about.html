@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>About Us | Vanguard Global Migration</title>
+<meta name="description" content="Vanguard Global Migration is a regulated Canadian immigration consultancy with offices in Mississauga and Lahore. Learn why families and professionals trust us with their biggest decision.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=block" rel="stylesheet">
+<link rel="stylesheet" href="styles/nav.css">
+<link rel="stylesheet" href="styles/footer.css">
+<link rel="stylesheet" href="styles/crumb.css">
+<link rel="stylesheet" href="styles/counters.css">
+<link rel="stylesheet" href="styles/about.css">
+
+<style>
+:root{
+  --u: min(calc(100vw / 1440), calc(100dvh / 860));
+  --e-reveal: cubic-bezier(.16,1,.3,1);
+  --e-soft: cubic-bezier(.25,.8,.3,1);
+}
+@supports not (height: 100dvh){
+  :root{ --u: min(calc(100vw / 1440), calc(100vh / 860)); }
+}
+
+/* ============ THEME TOKENS ============ */
+:root[data-theme="dark"]{
+  --bg-0:#050912;
+  --bg-1:#0a1226;
+  --bg-2:#0d1a35;
+  --ink:#ffffff;
+  --ink-muted:#c7d0e0;
+  --ink-soft:#9aa6bd;
+  --navy:#0f1f3d;
+  --navy-deep:#081326;
+  --gold:#cda34d;
+  --gold-2:#e9c877;
+  --gold-ink:#1a1305;
+  --panel:rgba(255,255,255,.07);
+  --panel-line:rgba(255,255,255,.12);
+  --glass-fill:rgba(6,11,22,.62);
+  --glass-line:rgba(255,255,255,.14);
+  --btn-primary-bg: linear-gradient(135deg, var(--gold-2), var(--gold));
+  --btn-primary-ink: #1a1305;
+}
+:root[data-theme="light"]{
+  --bg-0:#f6f4ee;
+  --bg-1:#f0ede4;
+  --bg-2:#e9e4d6;
+  --ink:#101a30;
+  --ink-muted:#3d4a63;
+  --ink-soft:#5c6883;
+  --navy:#132445;
+  --navy-deep:#0d1a33;
+  --gold:#9c7728;
+  --gold-2:#b8912f;
+  --gold-ink:#fff8ea;
+  --panel:rgba(16,26,48,.055);
+  --panel-line:rgba(16,26,48,.12);
+  --glass-fill:rgba(255,255,255,.66);
+  --glass-line:rgba(16,26,48,.12);
+  --btn-primary-bg: linear-gradient(135deg, #16274a, #0c1730);
+  --btn-primary-ink: #fdf8ec;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;padding:0;overflow-x:hidden;background:var(--bg-0)}
+body{
+  font-family:'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  text-rendering:geometricPrecision;
+  color:var(--ink);
+  background:var(--bg-0);
+  transition:background-color .45s ease, color .45s ease;
+}
+a{-webkit-tap-highlight-color:transparent}
+
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  font-family:inherit;text-decoration:none;white-space:nowrap;border:0;cursor:pointer;
+}
+.btn-lg{
+  height:calc(52 * var(--u));min-height:48px;
+  border-radius:999px;
+  font-size:clamp(.9rem, calc(.3vw + .82rem), calc(15.5 * var(--u)));
+  font-weight:700;letter-spacing:.2px;gap:10px;
+  padding:0 calc(30 * var(--u));
+}
+.btn-primary{
+  background:var(--btn-primary-bg);color:var(--btn-primary-ink);
+  box-shadow:0 12px 32px rgba(180,140,50,.25);
+  transition:transform .18s ease, box-shadow .18s ease, filter .18s ease;
+}
+.btn-primary:hover{transform:translateY(-2px);filter:brightness(1.05);box-shadow:0 16px 40px rgba(180,140,50,.34)}
+.btn-lg .arw{width:14px;height:12px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:99px}
+</style>
+
+</head>
+<body>
+
+<script src="scripts/site-header.js"></script>
+<div class="nav-clearance" aria-hidden="true"></div>
+
+<nav class="c-crumb wrap" aria-label="Breadcrumb"><ol><li><a href="index.html">Home</a></li><li>About Us</li></ol></nav>
+
+<main>
+  <section class="about-page-hero">
+    <div class="about-page-hero-inner">
+      <p class="about-eyebrow">About Vanguard Global Migration</p>
+      <h1>Regulated guidance, built around <em>your future.</em></h1>
+      <p class="about-page-sub">We are a licensed Canadian immigration consultancy with teams in Mississauga and Lahore, built on one standard: every file gets the same regulated, personal attention, whether it is a first-time application or a complex case after a refusal.</p>
+    </div>
+  </section>
+
+  <section class="about-section">
+    <div class="about-inner">
+      <div class="about-intro about-reveal">
+        <p class="about-eyebrow">Why Vanguard Global Migration</p>
+        <h2 id="about-title">Move forward with <em>clarity.</em></h2>
+        <p class="about-lead">Immigration is one of the biggest decisions a person or family will ever make, and the wrong advice can cost years, not just money. Vanguard Global Migration was built to remove that risk from the process.</p>
+      </div>
+
+      <div class="about-benefits">
+        <article class="benefit-card about-reveal"><span class="benefit-index">01</span><h3>Regulated and accountable</h3><p>Every file is reviewed under RCIC R416527, Muhammad Abid Nisar, and prepared to the standard required of a licensed Canadian professional.</p></article>
+        <article class="benefit-card about-reveal"><span class="benefit-index">02</span><h3>Two offices, one standard</h3><p>Our Mississauga and Lahore offices work as one team, so clients receive in-person support wherever they are based.</p></article>
+        <article class="benefit-card about-reveal"><span class="benefit-index">03</span><h3>Personal file handling</h3><p>Your case is managed directly by our team, not passed between departments or outsourced to a template.</p></article>
+        <article class="benefit-card about-reveal"><span class="benefit-index">04</span><h3>Proven track record</h3><p>5,000+ visas approved, 11 destinations, and a 98% success rate built over 15+ years of experience.</p></article>
+        <article class="benefit-card about-reveal"><span class="benefit-index">05</span><h3>End-to-end support</h3><p>From your first consultation to final approval and settlement, we manage every document, deadline, and IRCC interaction.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-cta-band">
+    <div class="about-cta-inner">
+      <h2>Your story starts with <em>a conversation.</em></h2>
+      <p>Speak with our team, or book directly with our President, Muhammad Abid Nisar, RCIC R416527, for complex or previously refused cases.</p>
+      <div class="about-cta-actions">
+        <a class="btn btn-lg btn-primary" href="consultation.html">
+          Book Your Consultation
+          <svg class="arw" viewBox="0 0 12 10" fill="none" aria-hidden="true"><path d="M0.8 5h10M7.1 1.4 10.9 5l-3.8 3.6" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a class="btn btn-lg btn-outline-gold" href="services/index.html">
+          Explore our services
+          <svg class="arw" viewBox="0 0 12 10" fill="none" aria-hidden="true"><path d="M0.8 5h10M7.1 1.4 10.9 5l-3.8 3.6" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script src="scripts/site-footer.js"></script>
+
+<script src="scripts/nav.js"></script>
+<script src="scripts/about.js"></script>
+<script src="scripts/counters.js"></script>
+</body>
+</html>

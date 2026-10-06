@@ -1,0 +1,103 @@
+/* ============ INTRO LOADER ============ */
+html.vgm-loading,
+html.vgm-loading body{overflow:hidden}
+
+.vgm-loader{
+  --l-bg-0:#050b18;
+  --l-bg-1:#0d1c3a;
+  --l-gold:#cda34d;
+  --l-gold-2:#f1d48a;
+  --l-ink:#e9eef8;
+  position:fixed;inset:0;z-index:2147483000;
+  pointer-events:auto;cursor:default;
+  -webkit-tap-highlight-color:transparent;
+}
+.vgm-loader svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible;display:block}
+
+/* --- the two halves the plane slices apart --- */
+.vgm-half{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 60% 45% at 50% 50%, rgba(205,163,77,.13), transparent 70%),
+    radial-gradient(circle at 50% 50%, var(--l-bg-1), var(--l-bg-0) 75%);
+  transition:transform 1.05s cubic-bezier(.77,0,.18,1);
+  will-change:transform;
+}
+.vgm-half::before{ /* faint dotted grid */
+  content:"";position:absolute;inset:0;
+  background-image:radial-gradient(rgba(205,163,77,.16) 1px, transparent 1.4px);
+  background-size:26px 26px;background-position:center;
+  -webkit-mask-image:radial-gradient(ellipse 70% 60% at 50% 50%, #000 20%, transparent 75%);
+          mask-image:radial-gradient(ellipse 70% 60% at 50% 50%, #000 20%, transparent 75%);
+}
+.vgm-half::after{ /* glowing cut edge, visible once the halves part */
+  content:"";position:absolute;left:0;right:0;height:2px;opacity:0;
+  background:linear-gradient(90deg, transparent, var(--l-gold-2) 20%, #fff 50%, var(--l-gold-2) 80%, transparent);
+  box-shadow:0 0 18px 2px rgba(241,212,138,.55);
+  transition:opacity .25s ease;
+}
+.vgm-half--top{clip-path:inset(0 0 50% 0)}
+.vgm-half--top::after{top:calc(50% - 2px)}
+.vgm-half--bot{clip-path:inset(50% 0 0 0)}
+.vgm-half--bot::after{top:50%}
+
+.vgm-loader.is-open .vgm-half--top{transform:translate3d(0,-52%,0)}
+.vgm-loader.is-open .vgm-half--bot{transform:translate3d(0,52%,0)}
+.vgm-loader.is-open .vgm-half::after{opacity:1}
+
+/* --- wordmark --- */
+.vgm-word{font-family:"Playfair Display", Georgia, serif;font-weight:700;font-size:90px}
+.vgm-word--ink{
+  fill:none;stroke:var(--l-gold-2);stroke-width:1.3;
+  stroke-dasharray:420;stroke-dashoffset:420;
+  transition:opacity .6s ease;
+}
+.vgm-word--fill{opacity:0;transition:opacity .7s ease}
+.vgm-loader.is-writing .vgm-word--ink{animation:vgmInk 1.5s cubic-bezier(.45,0,.25,1) forwards}
+.vgm-loader.is-filled .vgm-word--fill{opacity:1}
+.vgm-loader.is-filled .vgm-word--ink{opacity:.35}
+@keyframes vgmInk{to{stroke-dashoffset:0}}
+
+.vgm-sub{
+  font-family:"Plus Jakarta Sans", system-ui, sans-serif;font-weight:600;
+  font-size:16px;letter-spacing:7px;fill:var(--l-ink);
+  opacity:0;transform:translateY(10px);
+  transition:opacity .7s ease .1s, transform .8s cubic-bezier(.16,1,.3,1) .1s;
+}
+.vgm-rule{
+  stroke:var(--l-gold);stroke-width:1.2;
+  transform-box:fill-box;transform:scaleX(0);
+  transition:transform .8s cubic-bezier(.16,1,.3,1) .25s;
+}
+.vgm-rule--l{transform-origin:right center}
+.vgm-rule--r{transform-origin:left center}
+.vgm-loader.is-filled .vgm-sub{opacity:1;transform:none}
+.vgm-loader.is-filled .vgm-rule{transform:scaleX(1)}
+
+/* --- overlay: pen, plane, cut --- */
+
+.vgm-pen{fill:#fff;opacity:0;transition:opacity .25s ease}
+.vgm-pen-glow{fill:var(--l-gold-2);opacity:0;transition:opacity .25s ease}
+.vgm-loader.is-writing .vgm-pen{opacity:1}
+.vgm-loader.is-writing .vgm-pen-glow{opacity:.35}
+.vgm-loader.is-filled .vgm-pen,
+.vgm-loader.is-filled .vgm-pen-glow{opacity:0}
+
+.vgm-plane{fill:#fff;opacity:0}
+.vgm-plane.is-flying{opacity:1}
+.vgm-cut{stroke:#fff;stroke-width:1.6;opacity:0}
+.vgm-cut.is-cutting{opacity:1}
+.vgm-cut-glow{stroke:var(--l-gold-2);stroke-width:7;opacity:0;filter:blur(3px)}
+.vgm-cut-glow.is-cutting{opacity:.55}
+.vgm-overlay{transition:opacity .35s ease}
+.vgm-loader.is-open .vgm-overlay{opacity:0}
+
+/* --- exit --- */
+.vgm-loader.is-done{opacity:0;visibility:hidden;transition:opacity .3s ease, visibility 0s linear .3s}
+
+/* reduced motion: a calm crossfade only */
+.vgm-loader.is-reduced .vgm-word--fill,
+.vgm-loader.is-reduced .vgm-sub{opacity:1;transform:none;transition:none}
+.vgm-loader.is-reduced .vgm-rule{transform:none;transition:none}
+.vgm-loader.is-reduced .vgm-word--ink{display:none}
+.vgm-loader.is-reduced.is-done{transition:opacity .5s ease, visibility 0s linear .5s}
