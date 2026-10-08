@@ -39,13 +39,24 @@
     ['privacy.html','Privacy &amp; Cookies']
   ];
 
+  // Social profiles shown under the footer brand blurb
+  var social=[
+    ['Instagram','https://www.instagram.com/vanguard.global.migration/','<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg>'],
+    ['Facebook','https://www.facebook.com/profile.php?id=61594552546076','<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M13.6 21v-7.7h2.6l.4-3h-3V8.4c0-.9.3-1.5 1.5-1.5h1.6V4.2c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.2H8v3h2.6V21h3z"/></svg>'],
+    ['TikTok','https://www.tiktok.com/@vanguard.globalmigration','<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16.6 3c.3 2.2 1.6 3.6 3.9 3.8v2.7c-1.4.1-2.6-.3-3.9-1.1v5c0 6.4-7 8.4-9.8 3.8-1.8-3-.7-8.2 5.1-8.4v2.8c-.4.1-.9.2-1.3.3-1.3.4-2 1.2-1.8 2.6.4 2.7 5.4 3.5 5-1.8V3h2.8z"/></svg>'],
+    ['YouTube','https://www.youtube.com/@VanguardGlobalMigration','<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" fill-rule="evenodd" d="M22.5 7.2a2.8 2.8 0 0 0-2-2C18.8 4.7 12 4.7 12 4.7s-6.8 0-8.5.5a2.8 2.8 0 0 0-2 2C1 8.9 1 12 1 12s0 3.1.5 4.8a2.8 2.8 0 0 0 2 2c1.7.5 8.5.5 8.5.5s6.8 0 8.5-.5a2.8 2.8 0 0 0 2-2c.5-1.7.5-4.8.5-4.8s0-3.1-.5-4.8zM9.8 15.1V8.9l5.4 3.1-5.4 3.1z"/></svg>']
+  ];
+
   var html=''+
   '<footer class="c-footer">'+
     '<div class="wrap">'+
       '<div class="footer-grid">'+
         '<div class="footer-brand-block">'+
-          '<a class="footer-logo" href="'+R+'index.html" aria-label="Vanguard Global Migration home"><img src="'+R+'icons/logo.png" alt="" width="36" height="36"><span class="footer-logo-word"><b>VANGUARD</b><span>Global Migration</span></span></a>'+
+          '<a class="footer-logo" href="'+R+'index.html" aria-label="Vanguard Global Migration home"><img src="'+R+'icons/logo.png" alt="" width="58" height="36"><span class="footer-logo-word"><b>VANGUARD</b><span>Global Migration</span></span></a>'+
           '<p>Regulated Canadian immigration consultancy with offices in Mississauga and Lahore. Every file is reviewed under RCIC R416527, Muhammad Abid Nisar.</p>'+
+          '<div class="footer-social" aria-label="Follow Vanguard Global Migration">'+
+            social.map(function(s){ return '<a href="'+s[1]+'" target="_blank" rel="noopener" aria-label="'+s[0]+'" title="'+s[0]+'">'+s[2]+'</a>'; }).join('')+
+          '</div>'+
         '</div>'+
         columns.map(function(c){
           return '<div class="footer-col"><h4>'+c[0]+'</h4><ul>'+
