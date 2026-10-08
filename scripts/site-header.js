@@ -33,7 +33,7 @@
   var html=''+
   '<header class="nav">'+
     '<a class="logo" href="'+R+'index.html" aria-label="Vanguard Global Migration home">'+
-      '<span class="logo-mark" aria-hidden="true"><img class="logo-image" src="'+R+'1.png" alt=""></span>'+
+      '<span class="logo-mark" aria-hidden="true"><img class="logo-image" src="'+R+'icons/logo.png" alt=""></span>'+
       '<span class="logo-word"><b>VANGUARD</b><span>Global Migration</span></span>'+
     '</a>'+
     '<nav class="nav-links" aria-label="Primary">'+

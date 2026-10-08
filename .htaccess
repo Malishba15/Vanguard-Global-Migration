@@ -1,0 +1,10 @@
+RewriteEngine On
+
+# One canonical host: force HTTPS and strip "www."
+RewriteCond %{HTTPS} off [OR]
+RewriteCond %{HTTP_HOST} ^www\. [NC]
+RewriteRule ^(.*)$ https://vanguardglobalmigration.com/$1 [R=301,L]
+
+# Serve /index.html as /
+RewriteCond %{THE_REQUEST} \s/(.*/)?index\.html[\s?] [NC]
+RewriteRule ^(.*/)?index\.html$ https://vanguardglobalmigration.com/$1 [R=301,L]
