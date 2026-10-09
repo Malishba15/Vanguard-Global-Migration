@@ -2,14 +2,15 @@
    Vanguard Global Migration — shared site footer
    Used on every page (landing, about, contact, consultation,
    services, destinations) for a single consistent footer.
-   Self-contained: only reads --navy-deep and --gold, both of
-   which every page already defines for its own design system.
+   Self-contained: sets its own --navy-deep and --gold (the
+   landing page's values) so it renders the same on every page.
    ============================================================ */
 
 .wrap{width:min(1180px, calc(100% - 48px));margin:0 auto}
 @media (max-width:600px){.wrap{width:calc(100% - 32px)}}
 
-.c-footer{background:var(--navy-deep);color:rgba(253,250,243,.72);padding:64px 0 28px}
+/* Pinned to the landing page's colours so the footer looks identical on every page */
+.c-footer{--navy-deep:#0d1a33;--gold:#9c7728;width:100%;background:var(--navy-deep);color:rgba(253,250,243,.72);padding:64px 0 28px}
 .footer-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:40px;padding-bottom:44px;border-bottom:1px solid rgba(253,250,243,.12)}
 .footer-logo{display:flex;align-items:center;gap:10px;text-decoration:none;margin-bottom:16px}
 .footer-logo-word{display:flex;flex-direction:column;line-height:1.05}

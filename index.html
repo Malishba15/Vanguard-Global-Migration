@@ -390,6 +390,7 @@ a{-webkit-tap-highlight-color:transparent}
   font-weight:600;letter-spacing:calc(1.6 * var(--u));text-transform:uppercase;
   color:var(--gold-2);
 }
+h1 .eyebrow{font-family:'Plus Jakarta Sans', sans-serif;line-height:1.4}
 .eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--gold);flex:0 0 auto;box-shadow:0 0 8px var(--gold)}
 
 h1{
@@ -440,8 +441,8 @@ h1 .accent{color:var(--gold-2);font-style:italic}
 .btn-lg .arw{width:14px;height:12px}
 
 /* ============ COPY OVER THE GLOBE ============ */
-h1 .ln:nth-child(2),h1 .accent,.sub{transition:color 1.2s var(--e-soft), text-shadow 1.2s var(--e-soft)}
-.hero.globe-on h1 .ln:nth-child(2){color:#fbf6ea;text-shadow:0 2px 24px rgba(4,9,22,.55)}
+h1 .ln + .ln,h1 .accent,.sub{transition:color 1.2s var(--e-soft), text-shadow 1.2s var(--e-soft)}
+.hero.globe-on h1 .ln + .ln{color:#fbf6ea;text-shadow:0 2px 24px rgba(4,9,22,.55)}
 .hero.globe-on h1 .accent{color:#ecca78}
 .hero.globe-on .sub{color:rgba(243,238,226,.92);text-shadow:0 1px 16px rgba(4,9,22,.8);max-width:54ch}
 .hero.globe-on .btn-primary{
@@ -468,8 +469,8 @@ html.anim .nav,html.anim .logo,html.anim .nav-links a,html.anim .nav-actions>*{w
 
 html.anim.go .eyebrow{animation:fadeUp .6s var(--e-soft) .05s both}
 html.anim.go .ln-i{animation:lineRise 1.05s var(--e-reveal) both}
-html.anim.go .ln:nth-child(2) .ln-i{animation-delay:.16s}
-html.anim.go .ln:nth-child(3) .ln-i{animation-delay:.26s}
+html.anim.go .ln + .ln .ln-i{animation-delay:.16s}
+html.anim.go .ln + .ln + .ln .ln-i{animation-delay:.26s}
 html.anim.go .logo{animation:liftIn .6s var(--e-soft) .05s both}
 html.anim.go .nav{animation:navIn .8s var(--e-reveal) .02s both}
 html.anim.go .nav-links a{animation:liftIn .55s var(--e-soft) both}
@@ -562,14 +563,15 @@ html.anim.go .ctas{animation:pillIn .7s var(--e-reveal) .66s both}
   <script src="scripts/site-header.js"></script>
 
   <div class="hero-inner">
-    <p class="eyebrow"><span class="dot"></span>At the Forefront of Every Successful Journey</p>
-
     <h1>
+      <span class="eyebrow"><span class="dot"></span>Vanguard Global Migration &middot; Canada Immigration Consultants</span>
       <span class="ln"><span class="ln-i">Your Gateway&nbsp;to&nbsp;a</span></span>
       <span class="ln"><span class="ln-i"><span class="accent">Global</span> Future</span></span>
     </h1>
 
-    <p class="sub">Vanguard Global Migration is a regulated immigration and global mobility consultancy helping individuals, families, students, professionals, and investors build new lives, with Canada as our leading focus.</p>
+    <p class="sub">Vanguard Global Migration is a regulated immigration and global mobility consultancy helping individuals, families, students, professionals, and investors build new lives, with Canada as our leading focus. From our offices in Mississauga and Lahore, we guide Express Entry, PNP, study permit, work permit and visitor visa applications.</p>
+
+    <p class="tagline">At the Forefront of Every Successful Journey</p>
 
     <div class="ctas">
       <a class="btn btn-lg btn-primary" href="consultation.html">

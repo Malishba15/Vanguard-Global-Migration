@@ -91,7 +91,7 @@ function hasWebGL() {
 
 /* ---------- Pin the horizon just above the second headline line ---------- */
 const hero = stage && stage.closest('.hero');
-const anchor = hero && hero.querySelector('h1 .ln:nth-child(2)');
+const anchor = hero && hero.querySelector('h1 .ln + .ln');
 function placeGlobe() {
   if (!hero || !anchor) return;
   const r = anchor.getBoundingClientRect();
