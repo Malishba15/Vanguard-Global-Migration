@@ -1,3 +1,7 @@
+# Send the charset in the HTTP Content-Type header (e.g. text/html; charset=UTF-8)
+AddDefaultCharset UTF-8
+AddCharset UTF-8 .css .js .xml .txt
+
 RewriteEngine On
 
 # One canonical host: force HTTPS and strip "www."
