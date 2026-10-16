@@ -12,3 +12,6 @@ RewriteRule ^(.*)$ https://vanguardglobalmigration.com/$1 [R=301,L]
 # Serve /index.html as /
 RewriteCond %{THE_REQUEST} \s/(.*/)?index\.html[\s?] [NC]
 RewriteRule ^(.*/)?index\.html$ https://vanguardglobalmigration.com/$1 [R=301,L]
+
+# Build tooling (header/footer pre-renderer) is not part of the public site
+RewriteRule ^build/ - [F,L]

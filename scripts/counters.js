@@ -18,6 +18,9 @@
   }
 
   var section=document.querySelector('.results-section');
+  if(!section){ showFinal(); return; }
+  // The HTML carries the final numbers (for crawlers and no-JS); reset to 0 so the count-up can play
+  counters.forEach(function(counter){ counter.textContent=format(0, counter); });
   var started=false;
   var observer=new IntersectionObserver(function(entries){
     if(started || !entries.some(function(entry){ return entry.isIntersecting; })) return;
@@ -37,5 +40,5 @@
     observer.disconnect();
   }, {threshold:.28});
 
-  if(section) observer.observe(section); else showFinal();
+  observer.observe(section);
 })();
