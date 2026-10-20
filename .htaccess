@@ -29,6 +29,11 @@ RewriteRule ^(wp-admin|wp-content|wp-includes|wp-json|feed|comments/feed)(/|$) -
 RewriteRule ^(wp-login|xmlrpc)\.php$ - [G,L]
 RewriteRule ^.+/feed/?$ - [G,L]
 
+# WordPress default post and archive pages (author, category, tag, date) never had real content
+RewriteRule ^(hello-world|sample-page)/?$ - [G,L]
+RewriteRule ^(author|category|tag)(/|$) - [G,L]
+RewriteRule ^20[0-9]{2}(/|$) - [G,L]
+
 # Common WordPress slugs whose name differs from the new page
 RewriteRule ^(about-us|our-story|who-we-are)/?$ https://vanguardglobalmigration.com/about.html [R=301,L]
 RewriteRule ^(contact-us|get-in-touch)/?$ https://vanguardglobalmigration.com/contact.html [R=301,L]
