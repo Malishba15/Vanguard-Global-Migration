@@ -15,3 +15,29 @@ RewriteRule ^(.*/)?index\.html$ https://vanguardglobalmigration.com/$1 [R=301,L]
 
 # Build tooling (header/footer pre-renderer) is not part of the public site
 RewriteRule ^build/ - [F,L]
+
+# --- Old WordPress URLs ---
+# WordPress sitemaps -> the new sitemap (Search Console may still have these submitted)
+RewriteRule ^(sitemap_index|wp-sitemap|page-sitemap|post-sitemap)\.xml$ https://vanguardglobalmigration.com/sitemap.xml [R=301,L]
+
+# WordPress query-string links (/?p=12, /?page_id=5) -> homepage, query dropped
+RewriteCond %{QUERY_STRING} (^|&)(p|page_id|cat|tag|author)=
+RewriteRule ^$ https://vanguardglobalmigration.com/? [R=301,L]
+
+# WordPress system paths and feeds are gone for good: 410 tells Google to drop them
+RewriteRule ^(wp-admin|wp-content|wp-includes|wp-json|feed|comments/feed)(/|$) - [G,L]
+RewriteRule ^(wp-login|xmlrpc)\.php$ - [G,L]
+RewriteRule ^.+/feed/?$ - [G,L]
+
+# Common WordPress slugs whose name differs from the new page
+RewriteRule ^(about-us|our-story|who-we-are)/?$ https://vanguardglobalmigration.com/about.html [R=301,L]
+RewriteRule ^(contact-us|get-in-touch)/?$ https://vanguardglobalmigration.com/contact.html [R=301,L]
+RewriteRule ^(privacy-policy|cookie-policy)/?$ https://vanguardglobalmigration.com/privacy.html [R=301,L]
+RewriteRule ^(book-consultation|book-a-consultation|appointment)/?$ https://vanguardglobalmigration.com/consultation.html [R=301,L]
+RewriteRule ^home/?$ https://vanguardglobalmigration.com/ [R=301,L]
+RewriteRule ^our-services/?$ https://vanguardglobalmigration.com/services/ [R=301,L]
+
+# WordPress-style permalinks (/about/, /services/express-entry/) -> matching .html page
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+RewriteRule ^(.+?)/?$ https://vanguardglobalmigration.com/$1.html [R=301,L]
