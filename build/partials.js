@@ -27,34 +27,15 @@ var destinations=[
   ['spain','Spain'],['sweden','Sweden'],['finland','Finland']
 ];
 
-// Footer columns: heading + [href from site root, label]
-var columns=[
-  ['Permanent Residence',[
-    ['services/express-entry.html','Express Entry'],
-    ['services/provincial-nominee-program.html','Provincial Nominee Programs'],
-    ['services/healthcare-pathway.html','Healthcare Canada Pathway'],
-    ['services/physician-dentist-elite.html','Physician &amp; Dentist Elite'],
-    ['services/french-fast-track.html','French Fast-Track']
-  ]],
-  ['Work, Study &amp; Visit',[
-    ['services/federal-skilled-trades.html','Skilled Trades Pathway'],
-    ['services/c11-work-permit.html','C11 Work Permit'],
-    ['services/study-permit.html','Study in Canada'],
-    ['services/super-visa.html','Super Visa'],
-    ['services/visitor-visa.html','Visitor Visa']
-  ]],
-  ['Global Destinations',[
-    ['destinations/canada.html','Canada'],
-    ['destinations/united-kingdom.html','United Kingdom'],
-    ['destinations/australia.html','Australia'],
-    ['destinations/germany.html','Germany'],
-    ['destinations/index.html','All destinations']
-  ]]
+// Footer links: [href from site root, label]. Kept short on purpose:
+// individual services and destinations are already listed in the header nav.
+var explore=[
+  ['services/index.html','Services'],
+  ['destinations/index.html','Destinations'],
+  ['about.html','About Us'],
+  ['contact.html','Contact']
 ];
 var legal=[
-  ['about.html','About'],
-  ['consultation.html','Book a Consultation'],
-  ['contact.html','Contact'],
   ['privacy.html','Privacy &amp; Cookies']
 ];
 
@@ -142,11 +123,15 @@ function footer(R){
             map(social,function(s){ return '<a href="'+s[1]+'" target="_blank" rel="noopener" aria-label="'+s[0]+'" title="'+s[0]+'">'+s[2]+'</a>'; })+
           '</div>'+
         '</div>'+
-        map(columns,function(c){
-          return '<div class="footer-col"><h4>'+c[0]+'</h4><ul>'+
-            map(c[1],function(l){ return '<li><a href="'+R+l[0]+'">'+l[1]+'</a></li>'; })+
-          '</ul></div>';
-        })+
+        '<div class="footer-col"><h4>Explore</h4><ul>'+
+          map(explore,function(l){ return '<li><a href="'+R+l[0]+'">'+l[1]+'</a></li>'; })+
+        '</ul></div>'+
+        '<div class="footer-col"><h4>Get in Touch</h4><ul>'+
+          '<li><a href="mailto:info@vanguardglobalmigration.com">info@vanguardglobalmigration.com</a></li>'+
+          '<li><a href="https://wa.me/923274012525" target="_blank" rel="noopener">WhatsApp: +92 327 4012525</a></li>'+
+          '<li>Mississauga, Canada &middot; Lahore, Pakistan</li>'+
+        '</ul>'+
+        '<a class="footer-cta" href="'+R+'consultation.html">Book a Consultation</a></div>'+
       '</div>'+
       '<div class="footer-bottom">'+
         '<span>&copy; <span data-year>'+new Date().getFullYear()+'</span> Vanguard Global Migration. All rights reserved.</span>'+
