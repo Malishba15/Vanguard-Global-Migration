@@ -19,6 +19,19 @@ var services=[
   ['visitor-visas','Visitor Visas','Visitor, Super &amp; Business visas'],
   ['support-services','Support Services','Assessment, IELTS, documents &amp; landing']
 ];
+// UK services: [card anchor on destinations/united-kingdom.html, name]
+var ukServices=[
+  ['uk-skilled-worker','Skilled Worker Visa'],
+  ['uk-sponsor-licence','Sponsor Licence'],
+  ['uk-global-talent','Global Talent Visa'],
+  ['uk-innovator-founder','Innovator Founder Visa'],
+  ['uk-creative-worker','Creative Worker Visa'],
+  ['uk-spouse-partner','Spouse &amp; Partner Visas'],
+  ['uk-visa-extensions','Visa Extensions &amp; Switching'],
+  ['uk-ilr','Indefinite Leave to Remain'],
+  ['uk-british-citizenship','British Citizenship'],
+  ['uk-visit-visas','UK Visit Visas']
+];
 // Destinations: [file in destinations/, name]
 var destinations=[
   ['canada','Canada'],['united-states','United States'],['united-kingdom','United Kingdom'],
@@ -66,9 +79,17 @@ function header(R, page){
     '<nav class="nav-links" aria-label="Primary">'+
       '<div class="nav-item has-drop">'+
         '<a href="'+R+'services/index.html"'+cur('services/index.html')+'>Services '+caret+'</a>'+
-        '<div class="nav-drop" role="menu" aria-label="Canada services">'+
-          map(services,function(s){ return '<a href="'+R+'services/index.html#'+s[0]+'"><b>'+s[1]+'</b><span>'+s[2]+'</span></a>'; })+
-          '<div class="drop-foot"><a href="'+R+'services/index.html">View all Canada services '+arw+'</a></div>'+
+        '<div class="nav-drop drop-wide" role="menu" aria-label="Services">'+
+          '<div class="drop-col">'+
+            '<p class="drop-label">Canada</p>'+
+            map(services,function(s){ return '<a href="'+R+'services/index.html#'+s[0]+'"><b>'+s[1]+'</b><span>'+s[2]+'</span></a>'; })+
+            '<div class="drop-foot"><a href="'+R+'services/index.html">View all Canada services '+arw+'</a></div>'+
+          '</div>'+
+          '<div class="drop-col drop-col-uk">'+
+            '<p class="drop-label">United Kingdom</p>'+
+            map(ukServices,function(s){ return '<a href="'+R+'destinations/united-kingdom.html#'+s[0]+'"><b>'+s[1]+'</b></a>'; })+
+            '<div class="drop-foot"><a href="'+R+'destinations/united-kingdom.html#uk-services">View all UK services '+arw+'</a></div>'+
+          '</div>'+
         '</div>'+
       '</div>'+
       '<div class="nav-item has-drop">'+
@@ -94,6 +115,9 @@ function header(R, page){
       '<div class="m-sub">'+
         map(services,function(s){ return '<a href="'+R+'services/index.html#'+s[0]+'">'+s[1]+'</a>'; })+
         '<a href="'+R+'services/index.html"><strong>View all services</strong></a>'+
+        '<p class="m-label">UK Services</p>'+
+        map(ukServices,function(s){ return '<a href="'+R+'destinations/united-kingdom.html#'+s[0]+'">'+s[1]+'</a>'; })+
+        '<a href="'+R+'destinations/united-kingdom.html#uk-services"><strong>View all UK services</strong></a>'+
       '</div>'+
     '</details>'+
     '<details>'+
